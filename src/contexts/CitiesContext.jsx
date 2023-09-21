@@ -49,7 +49,7 @@ function CitiesProvider({children}) {
         } 
       }
       fetchCities();
-    }, [cities]);
+    }, []);
 const getCity = useCallback(  async function getCity(id) {
       
       if (Number(id) === currentCity.id) return;
