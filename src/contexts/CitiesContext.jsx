@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useReducer } from "react";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 
 const CitiesContext = createContext()
 const BASE_URL = "https://json-server-u9n3.vercel.app";
@@ -49,7 +49,7 @@ function CitiesProvider({children}) {
         } 
       }
       fetchCities();
-    }, []);
+    }, [cities]);
 const getCity = useCallback(  async function getCity(id) {
       
       if (Number(id) === currentCity.id) return;
