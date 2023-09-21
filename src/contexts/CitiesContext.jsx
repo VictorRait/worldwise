@@ -3,7 +3,8 @@ import { useReducer } from "react";
 import { createContext, useContext, useEffect } from "react";
 
 const CitiesContext = createContext()
-const BASE_URL = "https://json-server-u9n3.vercel.app";
+// const BASE_URL = "https://json-server-u9n3.vercel.app";
+const BASE_URL = "http://localhost:8000";
 
 
 const initialState ={
@@ -20,7 +21,7 @@ function reducer(state, action){
       return {...state, isLoading:false, cities:action.payload}
     case 'city/loaded':
       return {...state, isLoading:false, currentCity:action.payload}
-    case 'cities/created':
+    case 'city/created':
       return {...state, isLoading:false, cities:[...state.cities, action.payload], currentCity:action.payload}
     case 'city/deleted':
       return {
@@ -65,6 +66,7 @@ const getCity = useCallback(  async function getCity(id) {
         }
       }, [currentCity.id])
       async function createCity(newCity) {
+        
         dispatch({type:'loading'})
         try {
     
@@ -75,8 +77,8 @@ const getCity = useCallback(  async function getCity(id) {
               "Content-Type": "application/json"
             }
           }) ;
-
           const data = await res.json();
+          console.log(data)
           dispatch({type:'city/created', payload:data})
         } catch {
           dispatch({type:'rejected', payload:"There was an error creating the cities..."})
