@@ -71,7 +71,7 @@ function Form() {
     navigate('/app/cities')
   }
   return (
-    <form className={`${styles.form} ${isLoading ? styles.loading : ''}`} onClick={handleSubmit}>
+    <form className={`${styles.form} ${isLoading ? styles.loading : ''}`} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input id="cityName" onChange={(e) => setCityName(e.target.value)} value={cityName} />
