@@ -3,8 +3,8 @@ import { useReducer } from "react";
 import { createContext, useContext, useEffect } from "react";
 
 const CitiesContext = createContext()
-// const BASE_URL = "https://json-server-u9n3.vercel.app";
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://json-server-u9n3.vercel.app";
+// const BASE_URL = "http://localhost:8000";
 
 
 const initialState ={
