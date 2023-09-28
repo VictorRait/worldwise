@@ -47,7 +47,7 @@ function Form() {
 							"That doesn't seem to be a city. Click on another place.😯"
 						);
 					setCityName(data.city || data.locality || "");
-					setCountry(data.coutryName);
+					setCountry(data.countryName);
 					setEmoji(convertToEmoji(data.countryCode));
 				} catch (err) {
 					setGeocodingError(err.message);
